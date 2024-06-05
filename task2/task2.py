@@ -35,6 +35,7 @@ def determine_position(center, radius, point):
     else:
         return 2
 
+
 if __name__ == '__main__':
     try:
         circle_file = input('Введите путь к файлу с данными окружности: ')

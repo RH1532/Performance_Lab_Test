@@ -21,18 +21,14 @@ def main():
         values_file = input("Введите путь к файлу values.json: ")
         report_file = input("Введите путь к файлу report.json: ")
 
-        # Загрузка данных из файлов
         tests_data = load_json(tests_file)
         values_data = load_json(values_file)
-        
-        # Преобразуем список values в словарь для быстрого доступа
+
         values_dict = {item['id']: item['value'] for item in values_data['values']}
-        
-        # Заполняем поля value в tests.json
+
         for test in tests_data['tests']:
             fill_values(test, values_dict)
-        
-        # Сохраняем результат в report.json
+
         save_json(tests_data, report_file)
         print("Отчет успешно сформирован и сохранен в", report_file)
         
